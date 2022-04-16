@@ -1,10 +1,12 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import NewsItem from './NewsItem';
 
 const NewsItemList = (props) => {
-    console.log(props.content);
+    const content = useSelector(state => state.content)
 
-    const output = props.content.map((item) => {
+    console.log(content);
+    const output = content.map((item) => {
         return (
             <NewsItem content={item} key={item.id}/>
         )

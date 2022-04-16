@@ -1,10 +1,9 @@
 import React from 'react';
-import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 
 const NewsItem = (props) => {
-    console.log(props.content.images[0].image_url);
+    console.log(props.content.id);
     return(
         <div className="card mb-3">
             <div className="row no-gutters">
