@@ -1,8 +1,8 @@
 import { nanoid } from '@reduxjs/toolkit'
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import { newsItemAdded } from './newsItemsSlice'
-
 
 export const AddNewsItemForm = () => {
     const [title, setTitle] = useState('')
@@ -11,6 +11,7 @@ export const AddNewsItemForm = () => {
     const [content, setContent] = useState('')
 
     const dispatch = useDispatch()
+    const history = useHistory()
 
     const onTitleChanged = e => setTitle(e.target.value)
     const onSubTitleChanged = e => setSubTitle(e.target.value)
@@ -35,7 +36,7 @@ export const AddNewsItemForm = () => {
                     images: [
                         {
                             id: 1,
-                            image_url: "//images.vrt.be/orig/2022/04/10/6960a378-b8a8-11ec-b07d-02b7b76bf47f.jpg",
+                            image_url: "pexels-cottonbro-3944454.jpg",
                             news_item_id: 1,
                             created_at: null,
                             updated_at: null
@@ -48,6 +49,7 @@ export const AddNewsItemForm = () => {
             setSubTitle('')
             setDescription('')
             setContent('')
+            history.push(`/news`)
         }
     }
 

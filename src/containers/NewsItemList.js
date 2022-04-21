@@ -31,3 +31,5 @@ class NewsItemListContainer extends Component {
 }
 
 export default NewsItemListContainer;
+
+// Werkende container opgezet bij originele applicatie, maar niet meer in gebruikt sinds overschakeling naar Redux

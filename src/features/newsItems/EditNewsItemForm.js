@@ -33,20 +33,6 @@ export const EditNewsItemForm = ({match}) => {
                     description,
                     subTitle,
                     content,
-                    // display_tag: "Test",
-                    // publication_date: new Date().toISOString(),
-                    // last_modified_date: new Date().toISOString(),
-                    // created_at: new Date().toISOString(),
-                    // updated_at: new Date().toISOString(),
-                    // images: [
-                    //     {
-                    //         id: 1,
-                    //         image_url: "//images.vrt.be/orig/2022/04/10/6960a378-b8a8-11ec-b07d-02b7b76bf47f.jpg",
-                    //         news_item_id: 1,
-                    //         created_at: null,
-                    //         updated_at: null
-                    //     }
-                    // ]
                 })
             )
             history.push(`/news/${newsItemId}`)
@@ -66,7 +52,7 @@ export const EditNewsItemForm = ({match}) => {
                     value={title}
                     onChange={onTitleChanged}
                 />
-                <label htmlFor="newsItemSubTitle">Titel</label>
+                <label htmlFor="newsItemSubTitle">Subtitel</label>
                 <input
                     type="text"
                     className="form-control" 

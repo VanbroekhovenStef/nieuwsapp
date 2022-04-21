@@ -21,7 +21,7 @@ const WeatherItem = (props) => {
     return (
         <div className="card" style={cardStyle}>
             <div style={textStyle}>
-                {props.item.main.temp} °C - {props.item.weather.description}
+                {props.item.main.temp} °C
             </div>
             <img style={imageStyle}
                  alt="tile"

@@ -1,17 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import NewsItemApi from '../../apis/NewsItemApi';
 import NewsItem from './NewsItem';
 import { selectAllNewsItems } from './newsItemsSlice';
 
 const NewsItemList = (props) => {
-    let api = new NewsItemApi();
-
-    let data = api.getNewsItems();
-    console.log(data);
-
     const newsItems = useSelector(selectAllNewsItems)
     const orderedNewsItems = newsItems.slice().sort((a, b) => b.last_modified_date.localeCompare(a.last_modified_date))
+    localStorage.newsItems = JSON.stringify(newsItems)
 
     console.log(newsItems);
     const output = orderedNewsItems.map((item) => {
@@ -30,3 +25,4 @@ const NewsItemList = (props) => {
 }
 
 export default NewsItemList;
+

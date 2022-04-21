@@ -31,3 +31,5 @@ class SingleNewsItemContainer extends Component {
 }
 
 export default SingleNewsItemContainer;
+
+// Werkende container opgezet bij originele applicatie, maar niet meer in gebruikt sinds overschakeling naar Redux
