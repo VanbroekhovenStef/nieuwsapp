@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import NewsItemApi from '../apis/NewsItemApi';
-import NewsItemList from '../components/content/NewsItemList';
+import NewsItemList from '../features/newsItems/NewsItemList';
 class NewsItemListContainer extends Component {
     constructor(props) {
         super(props);
@@ -31,3 +31,5 @@ class NewsItemListContainer extends Component {
 }
 
 export default NewsItemListContainer;
+
+// Werkende container opgezet bij originele applicatie, maar niet meer in gebruikt sinds overschakeling naar Redux

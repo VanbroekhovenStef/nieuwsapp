@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import NewsItemList from '../../containers/NewsItemList';
-import SingleNewsItem from '../../containers/SingleNewsItem';
+import NewsItemList from './NewsItemList';
+import SingleNewsItem from './SingleNewsItem';
 
 const News = (props) => {
     return(

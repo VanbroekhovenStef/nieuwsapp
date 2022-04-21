@@ -1,16 +1,15 @@
 import axios from 'axios';
 
-const NewsItemBaseUrl = "http://nieuwsapp.test/api/news_items"
-const NewsItemCanvasUrl = "https://www.vrt.be/vrtnws/nl/regio/_jcr_content/par/grid.app.json"
+const NewsItemsUrl = "https://www.vrt.be/vrtnws/nl/regio/_jcr_content/par/grid.app.json";
 
 class NewsItemApi {
     getNewsItems() {
-        return axios.get(NewsItemBaseUrl);
+        return axios.get(NewsItemsUrl);
     }
 
-    getNewsItem(id) {
-        return axios.get(NewsItemBaseUrl + "/" + id)
-    }
+    // getNewsItem(id) {
+    //     return axios.get(NewsItemBaseUrl + "/" + id)
+    // }
 }
 
 export default NewsItemApi;
