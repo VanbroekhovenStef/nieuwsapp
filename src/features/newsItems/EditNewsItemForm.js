@@ -1,15 +1,14 @@
-import { nanoid } from '@reduxjs/toolkit'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { contentUpdated } from './contentSlice'
+import { newsItemUpdated, selectNewsItemById } from './newsItemsSlice'
 
 
-export const EditContentForm = ({match}) => {
+export const EditNewsItemForm = ({match}) => {
     console.log('arrived')
     const { newsItemId } = match.params
 
-    const newsItem = useSelector(state => state.content.find(newsItem => newsItem.id == newsItemId))
+    const newsItem = useSelector(state => selectNewsItemById(state, newsItemId))
     
     const [title, setTitle] = useState(newsItem.title)
     const [subTitle, setSubTitle] = useState(newsItem.subTitle)
@@ -24,11 +23,11 @@ export const EditContentForm = ({match}) => {
     const onDescriptionChanged = e => setDescription(e.target.value)
     const onContentChanged = e => setContent(e.target.value)
 
-    const onSaveContentClicked = () => {
+    const onSaveNewsItemClicked = () => {
         console.log(title)
         if (title && subTitle && description && content) {
             dispatch(
-                contentUpdated({
+                newsItemUpdated({
                     id: newsItemId, 
                     title,
                     description,
@@ -54,47 +53,45 @@ export const EditContentForm = ({match}) => {
         }
     }
 
-    const canSave = Boolean(title) && Boolean(subTitle) && Boolean(description) && Boolean(content)
-
     return (
         <div className="container">
             <h1 className="mt-3">Artikel Bewerken</h1>
             <form className="form-group mt-3">
-                <label htmlFor="contentTitle">Titel</label>
+                <label htmlFor="newsItemTitle">Titel</label>
                 <input
                     type="text"
                     className="form-control" 
-                    id="contentTitle"
-                    name="contentTitle"
+                    id="newsItemTitle"
+                    name="newsItemTitle"
                     value={title}
                     onChange={onTitleChanged}
                 />
-                <label htmlFor="contentSubTitle">Titel</label>
+                <label htmlFor="newsItemSubTitle">Titel</label>
                 <input
                     type="text"
                     className="form-control" 
-                    id="contentSubTitle"
-                    name="contentSubTitle"
+                    id="newsItemSubTitle"
+                    name="newsItemSubTitle"
                     value={subTitle}
                     onChange={onSubTitleChanged}
                 />
-                <label htmlFor="contentDescription">Beschrijving</label>
+                <label htmlFor="newsItemDescription">Beschrijving</label>
                 <input 
                     type="text"
                     className="form-control" 
-                    id="contentDescription"
-                    name="contentDescription"
+                    id="newsItemDescription"
+                    name="newsItemDescription"
                     value={description}
                     onChange={onDescriptionChanged} />
-                <label htmlFor="contentContent">Inhoud</label>
+                <label htmlFor="newsItemContent">Inhoud</label>
                 <textarea
                     className="form-control" 
-                    id="contentContent"
-                    name="contentContent"
+                    id="newsItemContent"
+                    name="newsItemContent"
                     rows="5"
                     value={content}
                     onChange={onContentChanged} />
-                <button type="button" onClick={onSaveContentClicked} className="btn btn-primary mt-3">Bewerking opslaan</button>
+                <button type="button" onClick={onSaveNewsItemClicked} className="btn btn-primary mt-3">Bewerking opslaan</button>
             </form>
         </div>
     );

@@ -2,7 +2,6 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import NewsItemList from './NewsItemList';
 import SingleNewsItem from './SingleNewsItem';
-import { EditContentForm } from './EditContentForm';
 
 const News = (props) => {
     return(

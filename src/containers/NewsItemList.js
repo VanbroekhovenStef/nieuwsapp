@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import NewsItemApi from '../apis/NewsItemApi';
-import NewsItemList from '../features/content/NewsItemList';
+import NewsItemList from '../features/newsItems/NewsItemList';
 class NewsItemListContainer extends Component {
     constructor(props) {
         super(props);

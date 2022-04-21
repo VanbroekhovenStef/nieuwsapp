@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import contentReducer from '../features/content/contentSlice'
+import newsItemsReducer from '../features/newsItems/newsItemsSlice'
 
 export default configureStore({
   reducer: {
-    content: contentReducer
+    newsItems: newsItemsReducer
   }
 })

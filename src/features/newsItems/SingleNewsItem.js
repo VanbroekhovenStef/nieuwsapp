@@ -1,15 +1,14 @@
 import React from 'react';
 import { useSelector  } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { selectNewsItemById } from './newsItemsSlice';
 
 export const SingleNewsItem = ({match}) => {
-    console.log('arrived');
-
     const { newsItemId } = match.params
     console.log(newsItemId, 'id')
 
     const newsItem = useSelector(state =>
-        state.content.find(newsItem => newsItem.id == newsItemId)
+        selectNewsItemById(state, newsItemId)
     )
 
     console.log(newsItem);
