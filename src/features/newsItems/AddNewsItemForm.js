@@ -26,7 +26,7 @@ export const AddNewsItemForm = () => {
                     id: nanoid(), 
                     title: title,
                     description: description,
-                    subtitle: subTitle,
+                    subTitle: subTitle,
                     content: content,
                     display_tag: "Test",
                     publication_date: new Date().toISOString(),
@@ -65,6 +65,8 @@ export const AddNewsItemForm = () => {
                     name="newsItemTitle"
                     value={title}
                     onChange={onTitleChanged}
+                    required
+                    maxLength="50"
                 />
                 <label htmlFor="newsItemSubTitle">Subtitel</label>
                 <input
@@ -74,6 +76,7 @@ export const AddNewsItemForm = () => {
                     name="newsItemSubTitle"
                     value={subTitle}
                     onChange={onSubTitleChanged}
+                    required
                 />
                 <label htmlFor="newsItemDescription">Beschrijving</label>
                 <input 
@@ -82,7 +85,9 @@ export const AddNewsItemForm = () => {
                     id="newsItemDescription"
                     name="newsItemDescription"
                     value={description}
-                    onChange={onDescriptionChanged} />
+                    onChange={onDescriptionChanged}
+                    required 
+                />
                 <label htmlFor="newsItemContent">Inhoud</label>
                 <textarea
                     className="form-control" 
@@ -90,7 +95,9 @@ export const AddNewsItemForm = () => {
                     name="newsItemContent"
                     rows="5"
                     value={content}
-                    onChange={onContentChanged} />
+                    onChange={onContentChanged}
+                    required 
+                />
                 <button type="button" onClick={onSaveNewsItemClicked} className="btn btn-primary mt-3">Artikel posten</button>
             </form>
         </div>
