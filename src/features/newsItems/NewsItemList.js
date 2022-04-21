@@ -6,10 +6,10 @@ import { selectAllNewsItems } from './newsItemsSlice';
 const NewsItemList = (props) => {
     const newsItems = useSelector(selectAllNewsItems)
     const orderedNewsItems = newsItems.slice().sort((a, b) => b.last_modified_date.localeCompare(a.last_modified_date))
-    localStorage.newsItems = JSON.stringify(newsItems)
+    const maxTenNewsItems = orderedNewsItems.slice(0, 10)
 
     console.log(newsItems);
-    const output = orderedNewsItems.map((item) => {
+    const output = maxTenNewsItems.map((item) => {
         return (
             <NewsItem newsItem={item} key={item.id}/>
         )
